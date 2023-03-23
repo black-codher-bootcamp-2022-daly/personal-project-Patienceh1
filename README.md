@@ -86,7 +86,7 @@ If successful you should see 4 documents in your newly created `profiles` collec
 
 You can start the client side code (front-end) and server side (back-end) separately using the commands in their respective folders. If you prefer to start them all together (this is the most convienient way), you can do so with the following commands:
 
-1. `npm run dev-install` to install all the dependencies
+1. `cd` to install all the dependencies
 2. `npm run develop` to start the development servers - [localhost:3000](http://localhost:3000) for front end and [localhost:8080](http://localhost:8080)
 
 Please note that you will only need to run `npm run dev-install` once during your first installation, subsequently you will only need to run `npm run develop` to get your development environment up and running.
