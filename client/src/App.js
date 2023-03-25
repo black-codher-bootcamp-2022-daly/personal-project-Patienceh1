@@ -1,39 +1,39 @@
 import React, { useState, useEffect } from "react";
-
+//import data from "./models/books.json";
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllBooks } from "./services/bookService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
-
+  const [books, setBooks] = useState();
   useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getBooks() {
+      if (!books) {
+        const response = await getAllBooks();
+        setBooks(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
+    getBooks();
+  }, [books]);
 
-  const renderProfile = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
+  const renderBook = (book) => {
+    return 
+    // (
+    //   // <li key={user._id}>
+    //   //   <h3>
+    //   //     {`${user.first_name} 
+    //   //     ${user.last_name}`}
+    //   //   </h3>
+    //   //   <p>{user.location}</p>
+    //   // </li>
+    // );
   };
 
   return (
     <div>
       <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
+        {books && books.length > 0 ? (
+          books.map((book) => renderBook(book))
         ) : (
           <p>No profiles found</p>
         )}

@@ -2,11 +2,11 @@
 // This example fetch is specifically for our Profile API and is why the file is called profileService.js
 import axios from "axios";
 
-const getAllProfiles = async () => {
-  const response = await axios.get(`/api/books`);
+const getAllBooks = async () => {
+  const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=&filter=paid-ebooks&print-type=books&projection=lite`);
 
   return response.data || [];
 };
 
 // All of the endpoints in this file can be exported below
-export { getAllProfiles };
+export { getAllBooks };
