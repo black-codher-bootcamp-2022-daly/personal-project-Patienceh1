@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import data from "./models/books.json";
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllBooks } from "./services/bookService";
 
