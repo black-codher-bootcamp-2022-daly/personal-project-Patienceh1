@@ -3,7 +3,7 @@ const Book = mongoose.model("books");
 
 const booksRoutes = (app) => {
   app.get(`/api/books`, async (req, res) => {
-    const profiles = await Profile.find();
+    const profiles = await Book.find();
 
     return res.status(200).send(profiles);
   });

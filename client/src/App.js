@@ -1,3 +1,4 @@
+import { response } from "express";
 import React, { useState, useEffect } from "react";
 //import data from "./models/books.json";
 // SERVICES THAT CALL OUR API ENDPOINTS
@@ -10,12 +11,13 @@ function App() {
       if (!books) {
         const response = await getAllBooks();
         setBooks(response);
+      
       }
     }
 
     getBooks();
   }, [books]);
-
+  console.log(books)
   const renderBook = (book) => {
     return 
     // (

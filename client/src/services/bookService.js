@@ -3,7 +3,7 @@
 import axios from "axios";
 
 const getAllBooks = async () => {
-  const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=&filter=paid-ebooks&print-type=books&projection=lite`);
+  const response = await axios.get(`http://localhost:8080/api/books`);
 
   return response.data || [];
 };
