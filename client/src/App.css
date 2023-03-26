@@ -1,3 +1,6 @@
+* {
+  background-color: #EEEDE7;
+}
 .App {
   text-align: center;
 }
@@ -24,6 +27,14 @@
   color: white;
 }
 
+.Card {
+  display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+.Card {
+  flex: 0 1 calc(25% - 1em);
+}
 .App-link {
   color: #61dafb;
 }
@@ -34,5 +45,17 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .Cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .Card {
+      flex: 0 1 calc(25% - 1em);
   }
 }

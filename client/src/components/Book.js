@@ -2,22 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Book = (props) => {
-  console.log(props);
+//   console.log(props);
 const {book} = props
   return (
-    <div>
+    <div className="Card">
       <ul>
+      <img
+          src={book.volumeInfo.imageLinks.smallThumbnail}
+          alt={book.volumeInfo.title}
+        />
         <h2>{book.volumeInfo.title}</h2>
         <h3>{book.volumeInfo.authors}</h3>
-        <p>{book.volumeInfo.description}</p>
+        {/* <p>{book.volumeInfo.description}</p> */}
         <h2>
           {book.saleInfo.retailPrice?.amount}
           {book.saleInfo.retailPrice?.currencyCode}
         </h2>
-        <img
-          src={book.volumeInfo.imageLinks.smallThumbnail}
-          alt={book.volumeInfo.title}
-        />
       </ul>
       <button onClick={() => props.onClick(props.id)}> { props.isInTheBasket ? "Remove" : "Add +"}</button>
     </div>
