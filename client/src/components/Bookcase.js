@@ -4,7 +4,7 @@ import Book from "./Book";
 export default function Bookcase({ books }) {
  // console.log(books)
   return (
-    <div>
+    <div className="">
       {books[0] ? (
         <div>
           <h1>Cart</h1>

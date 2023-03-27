@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import  "./index.css"
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllBooks } from "./services/bookService";
 import { Routes, Route } from "react-router-dom";
@@ -46,6 +47,13 @@ function App() {
   }
   const renderBook = (book) => {
     return <>
+   
+    </>
+    
+  };
+
+  return (
+    <>
     <Header/>
     <Routes>
         <Route
@@ -58,38 +66,25 @@ function App() {
                 setKeyword={setKeyword}
                 findBooks={findBooks}
               />
-              {books.map((book) => (
-                <Book
+              { books && books.length > 0 ? books.map((book) =>  (
+                <Book className="inline-flex"
                   handleClick={addBook}
                   onClick={() => addBookToCart(book)}
                   id={book.id}
                   book={book}
                   key={book.id}
                 />
-              ))}
+              )): "No books found"}
             </Container>
           }
         />
         <Route
           path="/Bookcase"
-          element={<Bookcase books={basket} key={books.id} />}
+          element={<Bookcase books={basket} />}
         />
         <Route path="/About" element={<h1> About</h1>} />
       </Routes>
-    </>
-    
-  };
-
-  return (
-    <div>
-      <ul>
-        {books && books.length > 0 ? (
-          books.map((book) => renderBook(book))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
-    </div>
+      </>
   );
 }
 
