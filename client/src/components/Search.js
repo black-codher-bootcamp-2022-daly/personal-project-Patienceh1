@@ -12,10 +12,10 @@ const Search = (props) => {
     }
     return (
       <form>
-          <p style={{ color: "red" }}>
+          <p style={{ color: "#2F5061" }}>
           <em>{keyword && "Keywords Typed: " + keyword}</em>
         </p>
-        <input
+        <input className="search_input"
           type="text"
           value={props.keyword}
           onChange={handleChange}
