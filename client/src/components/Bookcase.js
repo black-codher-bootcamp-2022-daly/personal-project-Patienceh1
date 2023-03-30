@@ -15,7 +15,7 @@ export default function Bookcase({ books, removeBookFromCart }) {
           ))}
         </div>
       ) : (
-        <h1>No books yet</h1>
+        <h1 className="text-2xl">No books yet</h1>
       )}
     </div>
   );
