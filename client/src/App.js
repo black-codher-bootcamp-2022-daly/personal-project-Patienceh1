@@ -5,9 +5,10 @@ import { getAllBooks } from "./services/bookService";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Container from "./components/Container";
-import {Book, ModalFunc} from "./components/Book";
+import {Book} from "./components/Book";
 import Bookcase from "./components/Bookcase";
 import Search from "./components/Search";
+import Modal from "./components/Modal"
 
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
   const [keyword, setKeyword] = useState("");
   const [basket, setBasket] = useState([]);
 
-  function addBook(id) {
-    console.log(`The book was clicked:` + id);
-  }
+  // function addBook(id) {
+  //   console.log(`The book was clicked:` + id);
+  // }
   useEffect(() => {
     async function getBooks() {
       if (!books) {
@@ -32,11 +33,32 @@ function App() {
   console.log(books)
 
   function addBookToCart(book) {
+    console.log(book);
     const newBasket = basket;
     newBasket.push(book);
     setBasket(newBasket);
     console.log({ newBasket, basket });
   }
+
+  const removeBookFromCart = (id) => {
+    const newItems = [];
+    basket.forEach((books) => {
+      if (books.id === id) {
+       newItems.push(books);
+      } 
+      return books
+    });
+  
+    setBasket(newItems);
+  };
+
+  // function removeBookFromCart(book) {
+  //   const removeFromCart = [];
+  //   basket.forEach((book) => {
+  //     if (book) {
+  //       removeFromCart.push(books);
+  //     }
+  // }) 
 
   async function findBooks(value) {
     const url = `https://www.googleapis.com/books/v1/volumes?q=${value}&filter=paid-ebooks&print-type=books&projection=lite`;
@@ -46,12 +68,7 @@ function App() {
       setBooks(results.items);
     }
   }
-  const renderBook = (book) => {
-    return <>
-   
-    </>
-    
-  };
+ ;
 
   return (
     <>
@@ -70,8 +87,8 @@ function App() {
               />
               { books && books.length > 0 ? books.map((book) =>  (
                 <Book className="inline-flex"
-                  handleClick={addBook}
-                  onClick={() => addBookToCart(book)}
+                 removeBookFromCart={removeBookFromCart}
+                 addBookToCart={addBookToCart}
                   id={book.id}
                   book={book}
                   key={book.id}
@@ -82,12 +99,11 @@ function App() {
         />
         <Route
           path="/Bookcase"
-          element={<Bookcase books={basket} />}
+          element={<Bookcase books={basket}  removeBookFromCart={removeBookFromCart}/>}
         />
-        <Route path="/About" element={<ModalFunc/>} />
+        <Route path="/About" element={<Modal/>} />
       </Routes>
       </>
   );
 }
-
 export default App;

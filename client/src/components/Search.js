@@ -15,9 +15,6 @@ const Search = (props) => {
     }
     return (
       <form className="input-wrapper place-content-end">
-          <p style={{ color: "#2F5061" }}>
-          <em>{keyword && "Keywords Typed: " + keyword}</em>
-        </p>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <input className="search_input"
           type="text"
@@ -25,7 +22,7 @@ const Search = (props) => {
           onChange={handleChange}
           placeholder="Browse Books..."
         />
-        <input type="submit" onClick={onSubmit} />
+        <button type="submit" onClick={onSubmit} />
       </form>
     );
   };

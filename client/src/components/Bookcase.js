@@ -1,8 +1,9 @@
 import React from "react";
 import {Book} from "./Book";
 
-export default function Bookcase({ books }) {
- // console.log(books)
+
+export default function Bookcase({ books, removeBookFromCart }) {
+  console.log(books)
   return (
     <div className="">
       {books[0] ? (
@@ -10,7 +11,7 @@ export default function Bookcase({ books }) {
           <h1>Cart</h1>
           <h1>{books.length}</h1>
           {books.map((book) => (
-            <Book book={book} key={book.id} isInTheBasket={true} />
+            <Book book={book} removeBookFromCart={removeBookFromCart} key={book.id} inBasket={true} />
           ))}
         </div>
       ) : (

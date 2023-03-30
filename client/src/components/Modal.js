@@ -10,6 +10,7 @@ const customStyles = {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       backgroundColor: "white",
+      opacity:"0.2",
       width: 400,
     },
   };
@@ -27,10 +28,7 @@ const customStyles = {
           style={customStyles}
         >
           <div>
-          <img
-          src={book.volumeInfo.imageLinks.smallThumbnail}
-          alt={book.volumeInfo.title}
-        />
+       
           </div>
           <button onClick={() => setModalOpen(false)}>Close Modal</button>
       </Modal>
