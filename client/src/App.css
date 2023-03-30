@@ -2,6 +2,10 @@
 
 * {
   background-color: #EEEDE7;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 5px;
+  border: 0;
 }
 .App {
   text-align: center;

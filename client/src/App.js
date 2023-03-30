@@ -5,9 +5,10 @@ import { getAllBooks } from "./services/bookService";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Container from "./components/Container";
-import Book from "./components/Book";
+import {Book, ModalFunc} from "./components/Book";
 import Bookcase from "./components/Bookcase";
 import Search from "./components/Search";
+
 
 function App() {
   const [books, setBooks] = useState();
@@ -55,6 +56,7 @@ function App() {
   return (
     <>
     <Header/>
+    
     <Routes>
         <Route
           index
@@ -82,7 +84,7 @@ function App() {
           path="/Bookcase"
           element={<Bookcase books={basket} />}
         />
-        <Route path="/About" element={<h1> About</h1>} />
+        <Route path="/About" element={<ModalFunc/>} />
       </Routes>
       </>
   );

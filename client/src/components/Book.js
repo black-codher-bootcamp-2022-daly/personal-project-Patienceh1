@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Modal from "react-modal";
+import { useState } from "react";
 
-const Book = (props) => {
+ export const Book = (props) => {
 //   console.log(props);
 const {book} = props
   return (
@@ -12,14 +14,14 @@ const {book} = props
           alt={book.volumeInfo.title}
         />
         <div>
-        <p className="leading-loose font-semibold text-center text-cyan-900 text-base text-xs" >{book.volumeInfo.title}</p>
-        <p className="leading-loose font-bold text-center text-cyan-900 text-base text-xs">{book.volumeInfo.authors}</p>
+        <p className="leading-3 font-semibold text-center text-cyan-900 text-base text-xs" >{book.volumeInfo.title}</p>
+        <p className="leading-3 font-bold text-center text-cyan-900 text-base text-xs">{book.volumeInfo.authors}</p>
         {/* <p>{book.volumeInfo.description}</p> */}
         <p className="text-center text-cyan-900 text-base text-xs">
           {book.saleInfo.retailPrice?.amount}
           {book.saleInfo.retailPrice?.currencyCode}
         </p>
-        <button className=" content-center bg-rose-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" onClick={() => props.onClick(props.id)}> { props.isInTheBasket ? "Remove" : "Add to cart"}</button>
+        <button className="hover:bg-white ... content-center bg-rose-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" onClick={() => props.onClick(props.id)}> { props.isInTheBasket ? "Remove" : "Add to cart"}</button>
         </div>
       </ul>
     </div>
@@ -45,4 +47,38 @@ Book.propTypes = {
   }),
 };
 
-export default Book;
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "white",
+    width: 400,
+  },
+};
+
+ export function ModalFunc({books}) {
+ 
+  const [modalOpen, setModalOpen] = useState(false);
+
+
+
+  return (
+    <div className="App">
+      <button onClick={setModalOpen}>Open Modal</button>
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={() => setModalOpen(false)}
+        style={customStyles}
+      >
+        <div>
+      <h1>l</h1>
+        </div>
+        <button onClick={() => setModalOpen(false)}>Close Modal</button>
+    </Modal>
+  </div>
+);
+}

@@ -5,11 +5,68 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  align-items: center;
+  margin: 0px;
+  padding: 5px;
+  border: 0;
 }
 
+.navigation {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  /* gap: 10px 20px; */
+  justify-content: center;
+  border-radius: 10px;
+  list-style-type: none;
+  
+}
+.content-end {
+  margin-left: 900px;
+}
+.input-wrapper {
+  width: 65%;
+  height: 2.5rem;
+  border: none;
+  right: 500px;
+  margin-left: 200px;
+  border-radius: 10px;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+form.input-wrapper {
+  left: 5000px;
+}
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  width: 100%;
+  margin-left: 5px;
+  
+}
+
+input:focus {
+  outline: none;
+}
+.navigation {
+  font-size: 12px;
+  padding: 10px 10px;
+  width: 91%;
+  /* gap: 10px 10px; */
+  justify-items: space-around;
+  display: inline;
+  flex-direction: row;
+  position: relative;
+  left: 900px;
+}
+.Link {
+  position: relative;
+  top: -45px;
+}
 #header {
   font-family: 'Edu NSW ACT Foundation', cursive;
   font-size:47px;
